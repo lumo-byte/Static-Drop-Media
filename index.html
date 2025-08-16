@@ -539,3 +539,3312 @@
     <script src="js/merchandise.js"></script>
 </body>
 </html>
+
+<style>
+
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Ensure images are responsive */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Improve focus states for accessibility */
+*:focus {
+    outline: 2px solid #dc2626;
+    outline-offset: 2px;
+}
+
+/* Skip to content link for accessibility */
+.skip-link {
+    position: absolute;
+    top: -40px;
+    left: 6px;
+    background: #dc2626;
+    color: white;
+    padding: 8px;
+    text-decoration: none;
+    border-radius: 4px;
+    z-index: 10000;
+}
+
+.skip-link:focus {
+    top: 6px;
+}
+
+html, body {
+    overflow-x: hidden;
+    max-width: 100%;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    line-height: 1.6;
+    color: #1f1f1f;
+    background-color: #fff;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 600;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+}
+
+h1 {
+    font-size: 3.5rem;
+    font-weight: 700;
+}
+
+h2 {
+    font-size: 2.5rem;
+}
+
+h3 {
+    font-size: 1.8rem;
+}
+
+p {
+    margin-bottom: 1rem;
+    color: #666;
+}
+
+/* Buttons */
+.btn {
+    display: inline-block;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: center;
+    font-size: 1rem;
+}
+
+.btn-primary {
+    background: #dc2626;
+    color: white;
+    border: 2px solid #dc2626;
+}
+
+.btn-primary:hover {
+    background: white;
+    color: #dc2626;
+    border: 2px solid #dc2626;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(220, 38, 38, 0.3);
+}
+
+.btn-secondary {
+    background: #dc2626;
+    color: white;
+    border: 2px solid #dc2626;
+}
+
+.btn-secondary:hover {
+    background: white;
+    color: #dc2626;
+    border: 2px solid #dc2626;
+}
+
+.btn-outline {
+    background: #dc2626;
+    color: white;
+    border: 2px solid #dc2626;
+}
+
+.btn-outline:hover {
+    background: white;
+    color: #dc2626;
+    border: 2px solid #dc2626;
+}
+
+.btn-full {
+    width: 100%;
+}
+
+/* Navigation */
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+    padding: 1rem 0;
+    transition: all 0.3s ease;
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-logo {
+    display: flex;
+    align-items: center;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #dc2626;
+}
+
+.nav-logo i {
+    font-size: 2rem;
+    margin-right: 0.5rem;
+}
+
+.nav-menu {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+}
+
+.nav-menu a {
+    text-decoration: none;
+    color: #1f1f1f;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.nav-menu a:hover {
+    color: #dc2626;
+}
+
+.nav-toggle {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.nav-toggle span {
+    width: 25px;
+    height: 3px;
+    background: #333;
+    margin: 3px 0;
+    transition: 0.3s;
+}
+
+/* Hero Section */
+.hero {
+    min-height: 100vh;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(128, 128, 128, 0.7)), url('../Stanced MK4.jpg');
+    background-size: cover;
+    background-position: center top;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    color: white;
+    padding: 0 2rem;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Ensure background image scales properly on mobile */
+@media (max-width: 768px) {
+    .hero {
+        background-attachment: scroll;
+        background-position: center center;
+        height: 100vh;
+        min-height: 100vh;
+    }
+}
+
+.hero .container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 100%;
+}
+
+.hero-content {
+    max-width: 600px;
+    position: relative;
+    z-index: 2;
+    text-align: center;
+}
+
+.hero-content h1 {
+    margin-bottom: 1.5rem;
+    color: white;
+    font-size: 3.5rem;
+    line-height: 1.1;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    color: rgba(255, 255, 255, 0.95);
+    line-height: 1.6;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Removed hero-visual styling - no longer needed */
+
+/* Removed hero-image styling to allow full background image visibility */
+
+/* Section Headers */
+.section-header {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.section-header h2 {
+    color: #1f1f1f;
+    margin-bottom: 1rem;
+}
+
+.section-header p {
+    font-size: 1.1rem;
+    color: #666;
+}
+
+/* Dark section headers */
+.events .section-header h2,
+.vendors .section-header h2,
+.merchandise .section-header h2 {
+    color: white;
+}
+
+.events .section-header p,
+.vendors .section-header p,
+.merchandise .section-header p {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+/* Events Section - DARK BACKGROUND */
+.events {
+    padding: 5rem 0;
+    background: #1a1a1a;
+    color: white;
+}
+
+.events-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+    align-items: stretch;
+}
+
+.event-card {
+    background: white;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Dark section event cards */
+.events .event-card {
+    background: #2d2d2d;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.event-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
+}
+
+.event-image {
+    height: 200px;
+    background: linear-gradient(135deg, #dc2626 0%, #991b1b 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.event-image i {
+    font-size: 4rem;
+    color: white;
+}
+
+.event-content {
+    padding: 2rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Dark section event content text */
+.events .event-content h3 {
+    color: white;
+}
+
+.events .event-content .event-description {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.event-date, .event-location {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #666;
+    margin-bottom: 0.5rem;
+}
+
+/* Dark section event card text */
+.events .event-date,
+.events .event-location {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.event-actions {
+    display: flex;
+    gap: 1rem;
+    margin-top: auto;
+}
+
+/* Tickets Section */
+.tickets {
+    padding: 5rem 0;
+}
+
+.tickets-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    align-items: stretch;
+}
+
+.ticket-card {
+    background: white;
+    border-radius: 16px;
+    padding: 2rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    border: 2px solid transparent;
+    transition: all 0.3s ease;
+    position: relative;
+    min-height: 400px;
+    display: flex;
+    flex-direction: column;
+}
+
+.ticket-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
+}
+
+/* Removed featured ticket styling and badge - no longer needed */
+
+.ticket-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.ticket-price {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #dc2626;
+    margin-top: 1rem;
+}
+
+.ticket-price .currency {
+    font-size: 1.5rem;
+    vertical-align: top;
+}
+
+.ticket-price .period {
+    font-size: 1rem;
+    color: #666;
+    font-weight: 400;
+}
+
+.ticket-features {
+    list-style: none;
+    margin-bottom: 2rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.ticket-features li {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.75rem;
+    color: #666;
+    flex-shrink: 0;
+}
+
+.ticket-features i {
+    color: #28a745;
+}
+
+/* Ensure button is at the bottom of the ticket card */
+.ticket-card .btn {
+    margin-top: auto;
+    align-self: center;
+}
+
+
+
+/* Vendors Section - DARK BACKGROUND */
+.vendors {
+    padding: 5rem 0;
+    background: #1a1a1a;
+    color: white;
+}
+
+.vendor-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: start;
+}
+
+.vendor-benefits {
+    list-style: none;
+    margin-bottom: 2rem;
+}
+
+.vendor-benefits li {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.vendor-benefits i {
+    color: #dc2626;
+    font-size: 1.2rem;
+}
+
+.vendor-packages {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+.vendor-package {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Dark section vendor packages */
+.vendors .vendor-package {
+    background: #2d2d2d;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.vendor-package h4 {
+    color: #dc2626;
+    margin-bottom: 0.5rem;
+}
+
+.vendor-package .price {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 1rem;
+}
+
+.vendor-package ul {
+    list-style: none;
+}
+
+.vendor-package li {
+    margin-bottom: 0.5rem;
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.9rem;
+}
+
+/* Forms */
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    color: #1f1f1f;
+}
+
+/* Dark section form labels */
+.events .form-group label,
+.vendors .form-group label,
+.merchandise .form-group label {
+    color: white;
+}
+
+/* Dark section form inputs */
+.events .form-group input,
+.events .form-group select,
+.events .form-group textarea,
+.vendors .form-group input,
+.vendors .form-group select,
+.vendors .form-group textarea,
+.merchandise .form-group input,
+.merchandise .form-group select,
+.merchandise .form-group textarea {
+    background: #2d2d2d;
+    border-color: rgba(255, 255, 255, 0.2);
+    color: white;
+}
+
+.events .form-group input:focus,
+.events .form-group select:focus,
+.events .form-group textarea:focus,
+.vendors .form-group input:focus,
+.vendors .form-group select:focus,
+.vendors .form-group textarea:focus,
+.merchandise .form-group input:focus,
+.merchandise .form-group select:focus,
+.merchandise .form-group textarea:focus {
+    border-color: #dc2626;
+    background: #333;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #e1e5e9;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: #dc2626;
+}
+
+/* Sponsors Section */
+.sponsors {
+    padding: 5rem 0;
+}
+
+.sponsor-tiers {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    align-items: stretch;
+}
+
+.sponsor-tier {
+    background: white;
+    border-radius: 16px;
+    padding: 2rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    border: 2px solid transparent;
+    transition: all 0.3s ease;
+    position: relative;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.sponsor-tier:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
+}
+
+/* Removed featured sponsor styling - no longer needed */
+
+.sponsor-price {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #dc2626;
+    text-align: center;
+    margin: 1rem 0;
+}
+
+.sponsor-benefits {
+    list-style: none;
+    margin-bottom: 2rem;
+    flex: 1;
+}
+
+.sponsor-benefits li {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+    color: #666;
+}
+
+.sponsor-benefits i {
+    color: #28a745;
+}
+
+/* Merchandise Section - DARK BACKGROUND */
+.merchandise {
+    padding: 5rem 0;
+    background: #1a1a1a;
+    color: white;
+}
+
+.merch-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-bottom: 3rem;
+    align-items: stretch;
+}
+
+.merch-item {
+    background: white;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    min-height: 400px;
+}
+
+/* Dark section merchandise cards */
+.merchandise .merch-item {
+    background: #2d2d2d;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.merch-item:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
+}
+
+.merch-image {
+    height: 200px;
+    background: linear-gradient(135deg, #dc2626 0%, #991b1b 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.merch-image i {
+    font-size: 4rem;
+    color: white;
+}
+
+.merch-content {
+    padding: 1.5rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Dark section merchandise content text */
+.merchandise .merch-content h3 {
+    color: white;
+}
+
+.merchandise .merch-content .merch-description {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+/* Ensure buttons in dark sections are visible */
+.events .btn,
+.vendors .btn,
+.merchandise .btn {
+    color: white;
+    background: #dc2626;
+    border-color: #dc2626;
+}
+
+.events .btn:hover,
+.vendors .btn:hover,
+.merchandise .btn:hover {
+    background: white;
+    color: #dc2626;
+    border-color: #dc2626;
+}
+
+.merch-price {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #dc2626;
+    margin-bottom: 0.5rem;
+}
+
+/* Ensure merchandise price is visible in dark sections */
+.merchandise .merch-price {
+    color: #dc2626;
+}
+
+/* Remove duplicate rule - already handled above */
+
+.merch-options {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    margin-top: auto;
+    flex-wrap: wrap;
+}
+
+.merch-size {
+    flex: 1;
+    padding: 8px;
+    border: 2px solid #e1e5e9;
+    border-radius: 6px;
+}
+
+/* Dark section merchandise size selector */
+.merchandise .merch-size {
+    background: #2d2d2d;
+    border-color: rgba(255, 255, 255, 0.2);
+    color: white;
+}
+
+.merchandise .merch-size:focus {
+    border-color: #dc2626;
+    background: #333;
+}
+
+.cart-summary {
+    background: #2d2d2d;
+    padding: 2rem;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    color: white;
+}
+
+.cart-total {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+/* Ensure cart total text is visible in dark merchandise section */
+.merchandise .cart-total {
+    color: white;
+}
+
+/* Contact Section */
+.contact {
+    padding: 5rem 0;
+}
+
+.contact-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+}
+
+.contact-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.contact-item i {
+    color: #dc2626;
+    font-size: 1.5rem;
+    margin-top: 0.2rem;
+}
+
+.contact-item h4 {
+    color: #1f1f1f;
+    margin-bottom: 0.5rem;
+}
+
+.contact-item p {
+    color: #666;
+    margin-bottom: 0;
+}
+
+/* Footer */
+.footer {
+    background: #1a1a1a;
+    color: white;
+    padding: 3rem 0 1rem;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-bottom: 2rem;
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+.footer-logo {
+    display: flex;
+    align-items: center;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #dc2626;
+    margin-bottom: 1rem;
+}
+
+.footer-logo i {
+    font-size: 2rem;
+    margin-right: 0.5rem;
+}
+
+.footer-section h4 {
+    color: white;
+    margin-bottom: 1rem;
+}
+
+.footer-section p {
+    color: white;
+    margin-bottom: 1rem;
+}
+
+.footer-section ul {
+    list-style: none;
+}
+
+.footer-section ul li {
+    margin-bottom: 0.5rem;
+}
+
+.footer-section ul li a {
+    color: #ccc;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-section ul li a:hover {
+    color: #dc2626;
+}
+
+.social-links {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.social-links a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background: #333;
+    color: white;
+    border-radius: 50%;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.social-links a:hover {
+    background: #dc2626;
+    transform: translateY(-2px);
+}
+
+.newsletter-form {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 1rem;
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+.newsletter-form input {
+    flex: 1;
+    min-width: 0;
+    max-width: calc(100% - 130px);
+    padding: 10px;
+    border: none;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    box-sizing: border-box;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.newsletter-form .btn {
+    flex-shrink: 0;
+    white-space: nowrap;
+    box-sizing: border-box;
+    max-width: 120px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 2rem;
+    border-top: 1px solid #333;
+    color: #ccc;
+}
+
+/* Modals */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 2000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(5px);
+}
+
+.modal-content {
+    background-color: white;
+    margin: 5% auto;
+    padding: 2rem;
+    border-radius: 16px;
+    width: 90%;
+    max-width: 500px;
+    max-height: 80vh;
+    overflow-y: auto;
+    position: relative;
+    animation: modalSlideIn 0.3s ease;
+    box-sizing: border-box;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+    border: 1px solid rgba(220, 38, 38, 0.1);
+    transition: all 0.3s ease;
+}
+
+.modal-content:hover {
+    box-shadow: 0 25px 80px rgba(0, 0, 0, 0.2);
+    border-color: rgba(220, 38, 38, 0.2);
+}
+
+@keyframes modalSlideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-30px) scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.close {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    font-size: 2rem;
+    cursor: pointer;
+    color: #999;
+    transition: color 0.3s ease;
+}
+
+.close:hover {
+    color: #333;
+}
+
+.modal-content.success {
+    text-align: center;
+}
+
+.modal-content.success i {
+    font-size: 4rem;
+    color: #28a745;
+    margin-bottom: 1rem;
+}
+
+/* Custom scrollbar for modal content - seamlessly integrated */
+.modal-content::-webkit-scrollbar {
+    width: 4px;
+}
+
+.modal-content::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.05);
+    border-radius: 2px;
+    margin: 4px 0;
+}
+
+.modal-content::-webkit-scrollbar-thumb {
+    background: rgba(220, 38, 38, 0.4);
+    border-radius: 2px;
+    border: none;
+    transition: all 0.2s ease;
+}
+
+.modal-content::-webkit-scrollbar-thumb:hover {
+    background: rgba(220, 38, 38, 0.7);
+    transform: scaleX(1.2);
+}
+
+.modal-content::-webkit-scrollbar-corner {
+    background: transparent;
+}
+
+/* Ensure scrollbar is contained within modal boundaries */
+.modal-content {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(220, 38, 38, 0.4) rgba(0, 0, 0, 0.05);
+}
+
+
+
+.ticket-code {
+    background: #f8f9fa;
+    padding: 1rem;
+    border-radius: 8px;
+    margin: 1rem 0;
+    font-family: monospace;
+    font-size: 1.1rem;
+}
+
+.ticket-total {
+    background: #f8f9fa;
+    padding: 1rem;
+    border-radius: 8px;
+    margin: 1rem 0;
+    text-align: center;
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+/* Mobile Navigation */
+.nav-toggle {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    z-index: 1001;
+    padding: 5px;
+}
+
+.nav-toggle span {
+    width: 25px;
+    height: 3px;
+    background: #333;
+    margin: 3px 0;
+    transition: 0.3s ease;
+    border-radius: 2px;
+}
+
+.nav-toggle.active span:nth-child(1) {
+    transform: rotate(-45deg) translate(-5px, 6px);
+}
+
+.nav-toggle.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.nav-toggle.active span:nth-child(3) {
+    transform: rotate(45deg) translate(-5px, -6px);
+}
+
+/* Prevent body scroll when mobile menu is open */
+body.nav-open {
+    overflow: hidden;
+}
+
+/* Mobile menu overlay */
+.nav-menu {
+    transition: left 0.3s ease, opacity 0.3s ease;
+}
+
+.nav-menu.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .container {
+        padding: 0 15px;
+    }
+    
+    .hero-content h1 {
+        font-size: 3rem;
+    }
+    
+    .events-grid,
+    .tickets-grid,
+    .sponsor-tiers,
+    .merch-grid {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 1.5rem;
+    }
+    
+    .vendor-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .contact-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .nav-menu {
+        position: fixed;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100vh;
+        background: rgba(255, 255, 255, 0.98);
+        backdrop-filter: blur(10px);
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 2rem;
+        transition: left 0.3s ease;
+        z-index: 1000;
+    }
+    
+    .nav-menu.active {
+        left: 0;
+    }
+    
+    .nav-menu li {
+        margin: 0;
+    }
+    
+    .nav-menu a {
+        font-size: 1.2rem;
+        padding: 1rem 2rem;
+        border-radius: 8px;
+        transition: all 0.3s ease;
+    }
+    
+    .nav-menu a:hover {
+        background: #dc2626;
+        color: white;
+    }
+    
+    .nav-toggle {
+        display: flex;
+    }
+    
+    .hero {
+        flex-direction: column;
+        text-align: center;
+        padding: 100px 1rem 2rem 1rem;
+        min-height: 80vh;
+    }
+    
+    .hero-content {
+        margin-bottom: 2rem;
+        margin-right: 0;
+        max-width: 100%;
+    }
+    
+    .hero-content h1 {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+    }
+    
+    .hero-content p {
+        font-size: 1rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    .hero-buttons {
+        justify-content: center;
+        flex-direction: row;
+        gap: 1rem;
+        flex-wrap: wrap;
+    }
+    
+    .hero-buttons .btn {
+        width: auto;
+        min-width: 140px;
+        max-width: none;
+    }
+    
+    .section-header {
+        margin-bottom: 3rem;
+    }
+    
+    .section-header h2 {
+        font-size: 2rem;
+    }
+    
+    .section-header p {
+        font-size: 1rem;
+    }
+    
+    .events,
+    .tickets,
+    .vendors,
+    .sponsors,
+    .merchandise,
+    .contact {
+        padding: 3rem 0;
+    }
+    
+    .events-grid,
+    .tickets-grid,
+    .sponsor-tiers,
+    .merch-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .event-card,
+    .ticket-card,
+    .sponsor-tier,
+    .merch-item {
+        margin: 0 auto;
+        max-width: 400px;
+    }
+    
+    .ticket-card {
+        min-height: 350px;
+        padding: 1.5rem;
+    }
+    
+    .ticket-features {
+        margin-bottom: 1.5rem;
+    }
+    
+    .ticket-features li {
+        margin-bottom: 0.75rem;
+        font-size: 0.95rem;
+    }
+    
+    .event-actions {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    
+    .event-actions .btn {
+        width: 100%;
+    }
+    
+    .merch-options {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    
+    .merch-options .btn {
+        width: 100%;
+    }
+    
+    .merch-size {
+        width: 100%;
+    }
+    
+    .vendor-packages {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    .cart-total {
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
+    }
+    
+    .cart-total .btn {
+        width: 100%;
+    }
+    
+    .newsletter-form {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    
+    .newsletter-form .btn {
+        width: 100%;
+    }
+    
+    .modal-content {
+        width: 95%;
+        margin: 10% auto;
+        padding: 1.5rem;
+        max-height: 85vh;
+        overflow-y: auto;
+    }
+    
+    .footer-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+    
+    .social-links {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 0 10px;
+    }
+    
+    .hero-content h1 {
+        font-size: 2rem;
+    }
+    
+    .hero-content p {
+        font-size: 0.9rem;
+    }
+    
+    .section-header h2 {
+        font-size: 1.8rem;
+    }
+    
+    .section-header p {
+        font-size: 0.9rem;
+    }
+    
+    .event-card,
+    .ticket-card,
+    .sponsor-tier,
+    .merch-item {
+        margin: 0;
+        max-width: none;
+    }
+    
+    .event-content,
+    .ticket-card,
+    .sponsor-tier,
+    .merch-content {
+        padding: 1.5rem;
+    }
+    
+    .ticket-card {
+        min-height: 320px;
+        padding: 1.5rem;
+    }
+    
+    .ticket-features {
+        margin-bottom: 1.5rem;
+    }
+    
+    .ticket-features li {
+        margin-bottom: 0.75rem;
+        font-size: 0.9rem;
+    }
+    
+    .hero-buttons {
+        flex-direction: row;
+        gap: 0.75rem;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .hero-buttons .btn {
+        min-width: 120px;
+        max-width: none;
+        font-size: 0.9rem;
+        padding: 12px 20px;
+    }
+    
+    .modal-content {
+        width: 98%;
+        margin: 5% auto;
+        padding: 1rem;
+        max-height: 90vh;
+        overflow-y: auto;
+    }
+    
+    .ticket-price {
+        font-size: 2rem;
+    }
+    
+    .sponsor-price {
+        font-size: 1.5rem;
+    }
+    
+    .merch-price {
+        font-size: 1.2rem;
+    }
+}
+
+@media (max-width: 360px) {
+    .hero-content h1 {
+        font-size: 1.8rem;
+    }
+    
+    .section-header h2 {
+        font-size: 1.6rem;
+    }
+    
+    .event-content,
+    .ticket-card,
+    .sponsor-tier,
+    .merch-content {
+        padding: 1rem;
+    }
+    
+    .ticket-card {
+        min-height: 300px;
+        padding: 1.5rem;
+    }
+    
+    .ticket-features {
+        margin-bottom: 1.5rem;
+    }
+    
+    .ticket-features li {
+        margin-bottom: 0.75rem;
+        font-size: 0.85rem;
+    }
+    
+    .hero-buttons {
+        gap: 0.5rem;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .hero-buttons .btn {
+        min-width: 100px;
+        padding: 10px 16px;
+        font-size: 0.85rem;
+    }
+    
+    .btn {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+    }
+}
+
+/* Landscape orientation adjustments */
+@media (max-height: 500px) and (orientation: landscape) {
+    .hero {
+        min-height: 100vh;
+        height: 100vh;
+        padding: 0 1rem;
+    }
+    
+    .hero-content h1 {
+        font-size: 2rem;
+        margin-bottom: 0.5rem;
+    }
+    
+    .hero-content p {
+        font-size: 0.9rem;
+        margin-bottom: 1rem;
+    }
+    
+    .nav-menu {
+        padding: 1rem 0;
+    }
+    
+    .nav-menu li {
+        margin: 0 1rem;
+    }
+}
+
+/* High DPI displays */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    .hero {
+        background-attachment: scroll;
+    }
+}
+
+/* Touch device optimizations */
+@media (hover: none) and (pointer: coarse) {
+    .btn:hover {
+        transform: none;
+    }
+    
+    .event-card:hover,
+    .ticket-card:hover,
+    .sponsor-tier:hover,
+    .merch-item:hover {
+        transform: none;
+    }
+    
+    .nav-menu a:hover {
+        background: transparent;
+        color: #dc2626;
+    }
+}
+
+/* Notification Styles */
+.notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: white;
+    color: #333;
+    padding: 1rem 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    z-index: 3000;
+    transform: translateX(400px);
+    transition: transform 0.3s ease;
+    max-width: 400px;
+}
+
+.notification.show {
+    transform: translateX(0);
+}
+
+.notification-success {
+    background: #d4edda;
+    color: #155724;
+    border-left: 4px solid #28a745;
+}
+
+.notification-error {
+    background: #f8d7da;
+    color: #721c24;
+    border-left: 4px solid #dc3545;
+}
+
+.notification-info {
+    background: #d1ecf1;
+    color: #0c5460;
+    border-left: 4px solid #17a2b8;
+}
+
+.notification-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.notification-message {
+    flex: 1;
+    margin-right: 1rem;
+}
+
+.notification-close {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: inherit;
+    opacity: 0.7;
+    transition: opacity 0.2s ease;
+}
+
+.notification-close:hover {
+    opacity: 1;
+}
+
+/* Additional mobile optimizations */
+@media (max-width: 768px) {
+    /* Improve touch targets */
+    .btn {
+        min-height: 44px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    /* Better spacing for mobile */
+    .section-header {
+        padding: 0 1rem;
+    }
+    
+    /* Ensure forms are mobile-friendly */
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+        font-size: 16px; /* Prevents zoom on iOS */
+        min-height: 44px;
+    }
+    
+    /* Better modal positioning on mobile */
+    .modal-content {
+        margin: 10% auto;
+        max-height: 90vh;
+        overflow-y: auto;
+    }
+    
+    /* Improve card readability on small screens */
+    .event-card,
+    .ticket-card,
+    .sponsor-tier,
+    .merch-item {
+        margin-bottom: 1rem;
+    }
+    
+    /* Better button spacing in mobile */
+    .event-actions,
+    .merch-options {
+        gap: 0.75rem;
+    }
+    
+    /* Ensure proper spacing on very small screens */
+    .container {
+        padding: 0 15px;
+    }
+    
+    /* Better text sizing for mobile */
+    .hero-content h1 {
+        font-size: clamp(1.8rem, 8vw, 2.5rem);
+    }
+    
+    .hero-content p {
+        font-size: clamp(0.9rem, 4vw, 1rem);
+    }
+    
+    /* Improve mobile navigation */
+    .nav-menu {
+        padding: 2rem 0;
+    }
+    
+    .nav-menu a {
+        font-size: clamp(1.1rem, 5vw, 1.2rem);
+        padding: 1.5rem 2rem;
+    }
+}
+
+/* Tablet-specific optimizations */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .container {
+        padding: 0 30px;
+    }
+    
+    .events-grid,
+    .tickets-grid,
+    .sponsor-tiers,
+    .merch-grid {
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        gap: 2rem;
+    }
+    
+    .hero-content h1 {
+        font-size: 3.2rem;
+    }
+}
+
+/* Large screen optimizations */
+@media (min-width: 1200px) {
+    .container {
+        max-width: 1400px;
+    }
+    
+    .hero-content h1 {
+        font-size: 4rem;
+    }
+    
+    .events-grid,
+    .tickets-grid,
+    .sponsor-tiers,
+    .merch-grid {
+        grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+    }
+}
+
+/* Print styles */
+@media print {
+    .navbar,
+    .nav-toggle,
+    .btn,
+    .modal,
+    .footer {
+        display: none !important;
+    }
+    
+    .hero {
+        background: none !important;
+        color: black !important;
+        min-height: auto;
+        padding: 2rem;
+    }
+    
+    .section {
+        page-break-inside: avoid;
+    }
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --bg-color: #1a1a1a;
+        --text-color: #ffffff;
+        --card-bg: #2d2d2d;
+    }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+    
+    .hero {
+        background-attachment: scroll;
+    }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+    .btn {
+        border-width: 3px;
+    }
+    
+    .event-card,
+    .ticket-card,
+    .sponsor-tier,
+    .merch-item {
+        border: 2px solid #000;
+    }
+}
+
+/* Landscape phone optimizations */
+@media (max-width: 768px) and (orientation: landscape) {
+    .hero {
+        min-height: 70vh;
+        padding: 80px 2rem 1rem 2rem;
+    }
+    
+    .hero-content h1 {
+        font-size: 2rem;
+        margin-bottom: 0.5rem;
+    }
+    
+    .hero-content p {
+        font-size: 0.9rem;
+        margin-bottom: 1rem;
+    }
+    
+    .nav-menu {
+        padding: 1rem 0;
+    }
+    
+    .nav-menu li {
+        margin: 0 0.5rem;
+    }
+}
+
+/* Very small screen optimizations */
+@media (max-width: 320px) {
+    .container {
+        padding: 0 10px;
+    }
+    
+    .hero-content h1 {
+        font-size: 1.6rem;
+    }
+    
+    .section-header h2 {
+        font-size: 1.4rem;
+    }
+    
+    .btn {
+        padding: 8px 16px;
+        font-size: 0.8rem;
+    }
+    
+    .event-content,
+    .ticket-card,
+    .sponsor-tier,
+    .merch-content {
+        padding: 1rem;
+    }
+}
+    
+</style>
+
+<script>
+
+// Main JavaScript for Static Drop Media Website
+
+document.addEventListener('DOMContentLoaded', function() {
+    // Navigation functionality
+    const navToggle = document.querySelector('.nav-toggle');
+    const navMenu = document.querySelector('.nav-menu');
+    const navbar = document.querySelector('.navbar');
+
+    // Mobile navigation toggle
+    if (navToggle) {
+        navToggle.addEventListener('click', function() {
+            navMenu.classList.toggle('active');
+            navToggle.classList.toggle('active');
+        });
+    }
+
+    // Smooth scrolling for navigation links
+    const navLinks = document.querySelectorAll('.nav-menu a[href^="#"]');
+    navLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href');
+            const targetSection = document.querySelector(targetId);
+            
+            if (targetSection) {
+                const offsetTop = targetSection.offsetTop - 80; // Account for fixed navbar
+                window.scrollTo({
+                    top: offsetTop,
+                    behavior: 'smooth'
+                });
+                
+                // Close mobile menu if open
+                if (navMenu.classList.contains('active')) {
+                    navMenu.classList.remove('active');
+                    navToggle.classList.remove('active');
+                }
+            }
+        });
+    });
+
+    // Navbar background on scroll
+    window.addEventListener('scroll', function() {
+        if (window.scrollY > 100) {
+            navbar.style.background = 'rgba(255, 255, 255, 0.98)';
+            navbar.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
+        } else {
+            navbar.style.background = 'rgba(255, 255, 255, 0.95)';
+            navbar.style.boxShadow = 'none';
+        }
+    });
+
+    // Form submissions
+    const contactForm = document.getElementById('contactForm');
+    if (contactForm) {
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            handleContactForm();
+        });
+    }
+
+    const vendorForm = document.getElementById('vendorForm');
+    if (vendorForm) {
+        vendorForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            handleVendorForm();
+        });
+    }
+
+    // Newsletter subscription
+    const newsletterForm = document.querySelector('.newsletter-form');
+    if (newsletterForm) {
+        newsletterForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            handleNewsletterSubscription();
+        });
+    }
+
+    // Initialize animations
+    initializeAnimations();
+});
+
+// Handle contact form submission
+function handleContactForm() {
+    const formData = new FormData(document.getElementById('contactForm'));
+    const data = Object.fromEntries(formData);
+    
+    // Simulate form submission
+    console.log('Contact form submitted:', data);
+    
+    // Show success message
+    showNotification('Message sent successfully! We\'ll get back to you soon.', 'success');
+    
+    // Reset form
+    document.getElementById('contactForm').reset();
+}
+
+// Handle vendor form submission
+function handleVendorForm() {
+    const formData = new FormData(document.getElementById('vendorForm'));
+    const data = Object.fromEntries(formData);
+    
+    // Simulate form submission
+    console.log('Vendor application submitted:', data);
+    
+    // Show success message
+    showNotification('Vendor application submitted successfully! We\'ll review and contact you soon.', 'success');
+    
+    // Reset form
+    document.getElementById('vendorForm').reset();
+}
+
+// Handle newsletter subscription
+function handleNewsletterSubscription() {
+    const email = document.querySelector('.newsletter-form input[type="email"]').value;
+    
+    if (email) {
+        // Simulate subscription
+        console.log('Newsletter subscription:', email);
+        
+        // Show success message
+        showNotification('Successfully subscribed to our newsletter!', 'success');
+        
+        // Reset form
+        document.querySelector('.newsletter-form input[type="email"]').value = '';
+    }
+}
+
+// Show notification
+function showNotification(message, type = 'info') {
+    // Create notification element
+    const notification = document.createElement('div');
+    notification.className = `notification notification-${type}`;
+    notification.innerHTML = `
+        <div class="notification-content">
+            <span class="notification-message">${message}</span>
+            <button class="notification-close">&times;</button>
+        </div>
+    `;
+    
+    // Add to page
+    document.body.appendChild(notification);
+    
+    // Show notification
+    setTimeout(() => {
+        notification.classList.add('show');
+    }, 100);
+    
+    // Auto-hide after 5 seconds
+    setTimeout(() => {
+        hideNotification(notification);
+    }, 5000);
+    
+    // Close button functionality
+    const closeBtn = notification.querySelector('.notification-close');
+    closeBtn.addEventListener('click', () => {
+        hideNotification(notification);
+    });
+}
+
+// Hide notification
+function hideNotification(notification) {
+    notification.classList.remove('show');
+    setTimeout(() => {
+        if (notification.parentNode) {
+            notification.parentNode.removeChild(notification);
+        }
+    }, 300);
+}
+
+// Initialize scroll animations
+function initializeAnimations() {
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
+    
+    const observer = new IntersectionObserver(function(entries) {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateY(0)';
+            }
+        });
+    }, observerOptions);
+    
+    // Observe elements for animation
+    const animatedElements = document.querySelectorAll('.event-card, .ticket-card, .sponsor-tier, .merch-item');
+    animatedElements.forEach(el => {
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(30px)';
+        el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+        observer.observe(el);
+    });
+}
+
+// Sponsor contact function
+function contactSponsor(tier) {
+    const tierNames = {
+        'gold': 'Gold Sponsor',
+        'platinum': 'Platinum Sponsor',
+        'diamond': 'Diamond Sponsor'
+    };
+    
+    const subject = `Sponsorship Inquiry - ${tierNames[tier]}`;
+    const message = `I'm interested in learning more about the ${tierNames[tier]} opportunity. Please contact me with additional details.`;
+    
+    // Pre-fill contact form
+    if (document.getElementById('contactSubject')) {
+        document.getElementById('contactSubject').value = 'sponsorship';
+    }
+    if (document.getElementById('contactMessage')) {
+        document.getElementById('contactMessage').value = message;
+    }
+    
+    // Scroll to contact section
+    const contactSection = document.getElementById('contact');
+    if (contactSection) {
+        contactSection.scrollIntoView({ behavior: 'smooth' });
+    }
+    
+    showNotification(`Redirecting to contact form for ${tierNames[tier]} inquiry.`, 'info');
+}
+
+// Utility function to generate random ticket codes
+function generateTicketCode() {
+    const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+    let result = '';
+    for (let i = 0; i < 8; i++) {
+        result += chars.charAt(Math.floor(Math.random() * chars.length));
+    }
+    return result;
+}
+
+// Export functions for use in other scripts
+window.StaticDropMedia = {
+    generateTicketCode,
+    showNotification,
+    contactSponsor
+};
+
+// Merchandise functionality for Static Drop Media Website
+
+document.addEventListener('DOMContentLoaded', function() {
+    // Initialize shopping cart
+    initializeShoppingCart();
+    
+    // Initialize merchandise interactions
+    initializeMerchandise();
+});
+
+// Shopping cart state
+let cart = [];
+let cartTotal = 0;
+
+// Initialize shopping cart
+function initializeShoppingCart() {
+    // Load cart from localStorage if available
+    loadCartFromStorage();
+    
+    // Update cart display
+    updateCartDisplay();
+}
+
+// Initialize merchandise interactions
+function initializeMerchandise() {
+    // Add event listeners to size selectors
+    const sizeSelectors = document.querySelectorAll('.merch-size');
+    sizeSelectors.forEach(selector => {
+        selector.addEventListener('change', function() {
+            const merchItem = this.closest('.merch-item');
+            const addToCartBtn = merchItem.querySelector('.btn');
+            
+            if (this.value) {
+                addToCartBtn.disabled = false;
+                addToCartBtn.textContent = 'Add to Cart';
+            } else {
+                addToCartBtn.disabled = true;
+                addToCartBtn.textContent = 'Select Size';
+            }
+        });
+    });
+}
+
+// Add item to cart
+function addToCart(itemId, price) {
+    const merchItem = event.target.closest('.merch-item');
+    const sizeSelector = merchItem.querySelector('.merch-size');
+    const size = sizeSelector ? sizeSelector.value : null;
+    
+    // Check if size is selected for items that require it
+    if (itemId === 'tshirt' && !size) {
+        showNotification('Please select a size before adding to cart.', 'error');
+        return;
+    }
+    
+    // Get item details
+    const itemDetails = getItemDetails(itemId);
+    if (!itemDetails) return;
+    
+    // Create cart item
+    const cartItem = {
+        id: itemId,
+        name: itemDetails.name,
+        price: price,
+        size: size,
+        quantity: 1
+    };
+    
+    // Check if item already exists in cart
+    const existingItemIndex = cart.findIndex(item => 
+        item.id === itemId && item.size === size
+    );
+    
+    if (existingItemIndex !== -1) {
+        // Update quantity
+        cart[existingItemIndex].quantity += 1;
+    } else {
+        // Add new item
+        cart.push(cartItem);
+    }
+    
+    // Update cart
+    updateCart();
+    
+    // Show success message
+    showNotification(`${itemDetails.name} added to cart!`, 'success');
+    
+    // Reset size selector if it exists
+    if (sizeSelector) {
+        sizeSelector.value = '';
+        const addToCartBtn = merchItem.querySelector('.btn');
+        addToCartBtn.disabled = true;
+        addToCartBtn.textContent = 'Select Size';
+    }
+}
+
+// Get item details
+function getItemDetails(itemId) {
+    const items = {
+        'tshirt': { name: 'Static Drop Media T-Shirt' },
+        'mug': { name: 'Static Drop Media Mug' },
+        'cap': { name: 'Static Drop Media Cap' },
+        'poster': { name: 'Event Poster Collection' }
+    };
+    
+    return items[itemId] || null;
+}
+
+// Update cart
+function updateCart() {
+    // Calculate total
+    cartTotal = cart.reduce((total, item) => total + (item.price * item.quantity), 0);
+    
+    // Update cart display
+    updateCartDisplay();
+    
+    // Save cart to localStorage
+    saveCartToStorage();
+}
+
+// Update cart display
+function updateCartDisplay() {
+    const cartTotalElement = document.getElementById('cartTotal');
+    if (cartTotalElement) {
+        cartTotalElement.textContent = cartTotal.toFixed(2);
+    }
+    
+    // Update cart count badge if it exists
+    updateCartCountBadge();
+}
+
+// Update cart count badge
+function updateCartCountBadge() {
+    const totalItems = cart.reduce((total, item) => total + item.quantity, 0);
+    
+    // Create or update cart count badge
+    let cartBadge = document.querySelector('.cart-count-badge');
+    if (!cartBadge) {
+        cartBadge = document.createElement('div');
+        cartBadge.className = 'cart-count-badge';
+        cartBadge.style.cssText = `
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background: #dc3545;
+            color: white;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            font-weight: 600;
+        `;
+        
+        // Add to navigation if it exists
+        const navMenu = document.querySelector('.nav-menu');
+        if (navMenu) {
+            const merchLink = navMenu.querySelector('a[href="#merch"]');
+            if (merchLink) {
+                merchLink.style.position = 'relative';
+                merchLink.appendChild(cartBadge);
+            }
+        }
+    }
+    
+    if (totalItems > 0) {
+        cartBadge.textContent = totalItems;
+        cartBadge.style.display = 'flex';
+    } else {
+        cartBadge.style.display = 'none';
+    }
+}
+
+// Remove item from cart
+function removeFromCart(index) {
+    const item = cart[index];
+    if (confirm(`Are you sure you want to remove ${item.name} from your cart?`)) {
+        cart.splice(index, 1);
+        updateCart();
+        showNotification(`${item.name} removed from cart`, 'info');
+    }
+}
+
+// Update item quantity
+function updateItemQuantity(index, newQuantity) {
+    if (newQuantity > 0) {
+        cart[index].quantity = newQuantity;
+        updateCart();
+    } else {
+        removeFromCart(index);
+    }
+}
+
+// Show cart details
+function showCartDetails() {
+    if (cart.length === 0) {
+        showNotification('Your cart is empty.', 'info');
+        return;
+    }
+    
+    // Create cart details modal
+    const modal = document.createElement('div');
+    modal.className = 'modal';
+    modal.style.display = 'block';
+    
+    const modalContent = document.createElement('div');
+    modalContent.className = 'modal-content';
+    modalContent.style.maxWidth = '600px';
+    
+    let cartHTML = `
+        <span class="close" onclick="this.closest('.modal').remove()">&times;</span>
+        <h2>Shopping Cart</h2>
+        <div class="cart-items">
+    `;
+    
+    cart.forEach((item, index) => {
+        cartHTML += `
+            <div class="cart-item" style="
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 1.5rem;
+                border-bottom: 1px solid #e1e5e9;
+                background: rgba(255, 255, 255, 0.05);
+                border-radius: 8px;
+                margin-bottom: 0.5rem;
+                transition: all 0.2s ease;
+            " onmouseover="this.style.background='rgba(255, 255, 255, 0.1)'" 
+               onmouseout="this.style.background='rgba(255, 255, 255, 0.05)'">
+                <div class="cart-item-details">
+                    <h4>${item.name}</h4>
+                    <p>P${item.price.toFixed(2)}</p>
+                    ${item.size ? `<p>Size: ${item.size}</p>` : ''}
+                </div>
+                <div class="cart-item-controls" style="display: flex; align-items: center; gap: 1rem;">
+                    <div class="quantity-controls" style="display: flex; align-items: center; gap: 0.5rem;">
+                        <button onclick="updateItemQuantity(${index}, ${item.quantity - 1})" style="
+                            background: #dc2626;
+                            color: white;
+                            border: none;
+                            border-radius: 6px;
+                            width: 32px;
+                            height: 32px;
+                            cursor: pointer;
+                            font-weight: bold;
+                            font-size: 1.1rem;
+                            transition: all 0.2s ease;
+                            box-shadow: 0 2px 4px rgba(220, 38, 38, 0.3);
+                        " onmouseover="this.style.background='#991b1b'; this.style.transform='scale(1.1)'" 
+                           onmouseout="this.style.background='#dc2626'; this.style.transform='scale(1)'">-</button>
+                        <span style="font-weight: 600; min-width: 20px; text-align: center;">${item.quantity}</span>
+                        <button onclick="updateItemQuantity(${index}, ${item.quantity + 1})" style="
+                            background: #dc2626;
+                            color: white;
+                            border: none;
+                            border-radius: 6px;
+                            width: 32px;
+                            height: 32px;
+                            cursor: pointer;
+                            font-weight: bold;
+                            font-size: 1.1rem;
+                            transition: all 0.2s ease;
+                            box-shadow: 0 2px 4px rgba(220,38, 38, 0.3);
+                        " onmouseover="this.style.background='#991b1b'; this.style.transform='scale(1.1)'" 
+                           onmouseout="this.style.background='#dc2626'; this.style.transform='scale(1)'">+</button>
+                    </div>
+                    <button onclick="removeFromCart(${index})" style="
+                        background: #dc2626;
+                        color: white;
+                        border: none;
+                        border-radius: 6px;
+                        padding: 0.5rem 1rem;
+                        cursor: pointer;
+                        font-weight: 600;
+                        transition: all 0.2s ease;
+                        box-shadow: 0 2px 4px rgba(220, 38, 38, 0.3);
+                    " onmouseover="this.style.background='#991b1b'; this.style.transform='translateY(-1px)'" 
+                       onmouseout="this.style.background='#dc2626'; this.style.transform='translateY(0)'">
+                        <i class="fas fa-trash" style="margin-right: 0.5rem;"></i>Remove
+                    </button>
+                </div>
+            </div>
+        `;
+    });
+    
+    cartHTML += `
+        </div>
+        <div class="cart-summary" style="
+            margin-top: 2rem;
+            padding-top: 1rem;
+            border-top: 2px solid #e1e5e9;
+        ">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+                <h3>Total:</h3>
+                <h3>P${cartTotal.toFixed(2)}</h3>
+            </div>
+            <div style="display: flex; gap: 1rem; margin-bottom: 1rem;">
+                <button onclick="clearCart()" style="
+                    background: #6c757d;
+                    color: white;
+                    border: none;
+                    border-radius: 6px;
+                    padding: 0.75rem 1rem;
+                    cursor: pointer;
+                    font-weight: 600;
+                    transition: all 0.2s ease;
+                    flex: 1;
+                " onmouseover="this.style.background='#5a6268'" 
+                   onmouseout="this.style.background='#6c757d'">
+                    <i class="fas fa-trash-alt" style="margin-right: 0.5rem;"></i>Clear Cart
+                </button>
+            </div>
+            <div style="display: flex; gap: 1rem;">
+                <button onclick="this.closest('.modal').remove()" class="btn btn-outline" style="flex: 1;">
+                    Continue Shopping
+                </button>
+                <button onclick="checkout()" class="btn btn-primary" style="flex: 1;">
+                    Proceed to Checkout
+                </button>
+            </div>
+        </div>
+    `;
+    
+    modalContent.innerHTML = cartHTML;
+    modal.appendChild(modalContent);
+    document.body.appendChild(modal);
+    
+    // Close modal when clicking outside
+    modal.addEventListener('click', function(e) {
+        if (e.target === modal) {
+            modal.remove();
+        }
+    });
+}
+
+// Checkout process
+function checkout() {
+    if (cart.length === 0) {
+        showNotification('Your cart is empty.', 'error');
+        return;
+    }
+    
+    // Show checkout modal
+    showCheckoutModal();
+}
+
+// Show checkout modal
+function showCheckoutModal() {
+    const modal = document.createElement('div');
+    modal.className = 'modal';
+    modal.style.display = 'block';
+    
+    const modalContent = document.createElement('div');
+    modalContent.className = 'modal-content';
+    modalContent.style.maxWidth = '500px';
+    
+    modalContent.innerHTML = `
+        <span class="close" onclick="this.closest('.modal').remove()">&times;</span>
+        <h2>Checkout</h2>
+        <form id="checkoutForm">
+            <div class="form-group">
+                <label for="checkoutName">Full Name</label>
+                <input type="text" id="checkoutName" name="checkoutName" required>
+            </div>
+            <div class="form-group">
+                <label for="checkoutEmail">Email</label>
+                <input type="email" id="checkoutEmail" name="checkoutEmail" required>
+            </div>
+            <div class="form-group">
+                <label for="checkoutPhone">Phone</label>
+                <input type="tel" id="checkoutPhone" name="checkoutPhone" required>
+            </div>
+            <div class="form-group">
+                <label for="checkoutAddress">Shipping Address</label>
+                <textarea id="checkoutAddress" name="checkoutAddress" rows="3" required></textarea>
+            </div>
+            <div class="form-group">
+                <label for="checkoutCity">City</label>
+                <input type="text" id="checkoutCity" name="checkoutCity" required>
+            </div>
+            <div class="form-group">
+                <label for="checkoutZip">ZIP Code</label>
+                <input type="text" id="checkoutZip" name="checkoutZip" required>
+            </div>
+            <div class="order-summary" style="
+                background: #f8f9fa;
+                padding: 1rem;
+                border-radius: 8px;
+                margin: 1rem 0;
+            ">
+                <h4>Order Summary</h4>
+                <p>Total Items: ${cart.reduce((total, item) => total + item.quantity, 0)}</p>
+                <p><strong>Total: $${cartTotal.toFixed(2)}</strong></p>
+            </div>
+            <button type="submit" class="btn btn-primary btn-full">Complete Order</button>
+        </form>
+    `;
+    
+    modal.appendChild(modalContent);
+    document.body.appendChild(modal);
+    
+    // Handle checkout form submission
+    const checkoutForm = document.getElementById('checkoutForm');
+    checkoutForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        processCheckout();
+    });
+    
+    // Close modal when clicking outside
+    modal.addEventListener('click', function(e) {
+        if (e.target === modal) {
+            modal.remove();
+        }
+    });
+}
+
+// Process checkout
+function processCheckout() {
+    const formData = new FormData(document.getElementById('checkoutForm'));
+    const data = Object.fromEntries(formData);
+    
+    // Validate form
+    if (!validateCheckoutForm(data)) {
+        return;
+    }
+    
+    // Show loading state
+    const submitBtn = document.querySelector('#checkoutForm button[type="submit"]');
+    submitBtn.disabled = true;
+    submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Processing...';
+    
+    // Simulate order processing
+    setTimeout(() => {
+        // Process order
+        processOrder(data);
+        
+        // Close checkout modal
+        document.querySelector('.modal').remove();
+        
+        // Clear cart
+        clearCart();
+        
+        // Show success message
+        showNotification('Order placed successfully! You will receive a confirmation email shortly.', 'success');
+        
+    }, 2000);
+}
+
+// Validate checkout form
+function validateCheckoutForm(data) {
+    const requiredFields = ['checkoutName', 'checkoutEmail', 'checkoutPhone', 'checkoutAddress', 'checkoutCity', 'checkoutZip'];
+    
+    for (let field of requiredFields) {
+        if (!data[field] || data[field].trim() === '') {
+            showNotification(`Please fill in the ${field.replace('checkout', '').toLowerCase()} field.`, 'error');
+            return false;
+        }
+    }
+    
+    // Validate email format
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(data.checkoutEmail)) {
+        showNotification('Please enter a valid email address.', 'error');
+        return false;
+    }
+    
+    return true;
+}
+
+// Process order
+function processOrder(data) {
+    const order = {
+        customer: data,
+        items: cart,
+        total: cartTotal,
+        orderNumber: generateOrderNumber(),
+        timestamp: new Date().toISOString()
+    };
+    
+    console.log('Order processed:', order);
+    
+    // In a real application, this would:
+    // 1. Send order to backend server
+    // 2. Process payment
+    // 3. Send confirmation emails
+    // 4. Update inventory
+    // 5. Generate shipping labels
+}
+
+// Generate order number
+function generateOrderNumber() {
+    const timestamp = Date.now().toString();
+    const random = Math.random().toString(36).substr(2, 5).toUpperCase();
+    return `SDM-${timestamp}-${random}`;
+}
+
+// Clear cart
+function clearCart() {
+    cart = [];
+    cartTotal = 0;
+    updateCart();
+}
+
+// Save cart to localStorage
+function saveCartToStorage() {
+    localStorage.setItem('staticDropMediaCart', JSON.stringify({
+        cart: cart,
+        cartTotal: cartTotal
+    }));
+}
+
+// Load cart from localStorage
+function loadCartFromStorage() {
+    const savedCart = localStorage.getItem('staticDropMediaCart');
+    if (savedCart) {
+        try {
+            const parsed = JSON.parse(savedCart);
+            cart = parsed.cart || [];
+            cartTotal = parsed.cartTotal || 0;
+        } catch (e) {
+            console.error('Error loading cart from storage:', e);
+            cart = [];
+            cartTotal = 0;
+        }
+    }
+}
+
+// Show notification (fallback)
+function showNotification(message, type = 'info') {
+    if (window.StaticDropMedia && window.StaticDropMedia.showNotification) {
+        window.StaticDropMedia.showNotification(message, type);
+    } else {
+        alert(message);
+    }
+}
+
+// Export functions for use in other scripts
+window.MerchandiseSystem = {
+    addToCart,
+    removeFromCart,
+    updateItemQuantity,
+    showCartDetails,
+    checkout,
+    clearCart,
+    getCartTotal: () => cartTotal,
+    getCartItems: () => cart
+};
+
+// Tickets functionality for Static Drop Media Website
+
+document.addEventListener('DOMContentLoaded', function() {
+    // Ticket modal functionality
+    const ticketModal = document.getElementById('ticketModal');
+    const successModal = document.getElementById('successModal');
+    const closeButtons = document.querySelectorAll('.close');
+    
+    // Close modal when clicking close button
+    closeButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            ticketModal.style.display = 'none';
+            successModal.style.display = 'none';
+        });
+    });
+    
+    // Close modal when clicking outside
+    window.addEventListener('click', function(event) {
+        if (event.target === ticketModal) {
+            ticketModal.style.display = 'none';
+        }
+        if (event.target === successModal) {
+            successModal.style.display = 'none';
+        }
+    });
+    
+    // Ticket form functionality
+    const ticketForm = document.getElementById('ticketForm');
+    if (ticketForm) {
+        ticketForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            handleTicketBooking();
+        });
+    }
+    
+    // Ticket quantity and type change handlers
+    const ticketQuantity = document.getElementById('ticketQuantity');
+    const ticketType = document.getElementById('ticketType');
+    
+    if (ticketQuantity) {
+        ticketQuantity.addEventListener('change', updateModalTotal);
+    }
+    
+    if (ticketType) {
+        ticketType.addEventListener('change', updateModalTotal);
+    }
+});
+
+// Open ticket modal with pre-selected package
+function openTicketModal(packageType) {
+    const ticketModal = document.getElementById('ticketModal');
+    const ticketType = document.getElementById('ticketType');
+    const modalTotal = document.getElementById('modalTotal');
+    
+    if (ticketModal && ticketType && modalTotal) {
+        // Set the ticket type based on package
+        const packageMap = {
+            'general': 'general',
+            'vip': 'vip',
+            'premium': 'premium'
+        };
+        
+        if (packageMap[packageType]) {
+            ticketType.value = packageMap[packageType];
+        }
+        
+        // Update total
+        updateModalTotal();
+        
+        // Show modal
+        ticketModal.style.display = 'block';
+        
+        // Focus on first input
+        setTimeout(() => {
+            const firstInput = ticketModal.querySelector('input, select');
+            if (firstInput) firstInput.focus();
+        }, 100);
+    }
+}
+
+// Update modal total based on ticket type and quantity
+function updateModalTotal() {
+    const ticketType = document.getElementById('ticketType');
+    const ticketQuantity = document.getElementById('ticketQuantity');
+    const modalTotal = document.getElementById('modalTotal');
+    
+    if (ticketType && ticketQuantity && modalTotal) {
+        const typeValue = ticketType.value;
+        const quantity = parseInt(ticketQuantity.value) || 1;
+        
+        let pricePerTicket = 75; // Default to general admission
+        
+        if (typeValue === 'vip') {
+            pricePerTicket = 150;
+        } else if (typeValue === 'premium') {
+            pricePerTicket = 250;
+        }
+        
+        const total = pricePerTicket * quantity;
+        modalTotal.textContent = total.toFixed(2);
+    }
+}
+
+// Handle ticket booking submission
+function handleTicketBooking() {
+    const formData = new FormData(document.getElementById('ticketForm'));
+    const data = Object.fromEntries(formData);
+    
+    // Validate form data
+    if (!validateTicketForm(data)) {
+        return;
+    }
+    
+    // Simulate ticket booking process
+    console.log('Ticket booking submitted:', data);
+    
+    // Generate unique ticket code
+    const ticketCode = window.StaticDropMedia ? 
+        window.StaticDropMedia.generateTicketCode() : 
+        generateTicketCode();
+    
+    // Show success modal with ticket code
+    showSuccessModal(ticketCode);
+    
+    // Close ticket modal
+    const ticketModal = document.getElementById('ticketModal');
+    if (ticketModal) {
+        ticketModal.style.display = 'none';
+    }
+    
+    // Reset form
+    document.getElementById('ticketForm').reset();
+    
+    // Simulate sending confirmation email
+    simulateEmailConfirmation(data, ticketCode);
+}
+
+// Validate ticket form data
+function validateTicketForm(data) {
+    const requiredFields = ['ticketType', 'ticketQuantity', 'ticketEvent', 'ticketName', 'ticketEmail', 'ticketPhone'];
+    
+    for (let field of requiredFields) {
+        if (!data[field] || data[field].trim() === '') {
+            showNotification(`Please fill in the ${field.replace('ticket', '').toLowerCase()} field.`, 'error');
+            return false;
+        }
+    }
+    
+    // Validate email format
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(data.ticketEmail)) {
+        showNotification('Please enter a valid email address.', 'error');
+        return false;
+    }
+    
+    // Validate phone format
+    const phoneRegex = /^[\+]?[1-9][\d]{0,15}$/;
+    if (!phoneRegex.test(data.ticketPhone.replace(/[\s\-\(\)]/g, ''))) {
+        showNotification('Please enter a valid phone number.', 'error');
+        return false;
+    }
+    
+    // Validate quantity
+    const quantity = parseInt(data.ticketQuantity);
+    if (quantity < 1 || quantity > 10) {
+        showNotification('Please select between 1 and 10 tickets.', 'error');
+        return false;
+    }
+    
+    return true;
+}
+
+// Show success modal with ticket code
+function showSuccessModal(ticketCode) {
+    const successModal = document.getElementById('successModal');
+    const ticketCodeSpan = document.getElementById('ticketCode');
+    
+    if (successModal && ticketCodeSpan) {
+        ticketCodeSpan.textContent = ticketCode;
+        successModal.style.display = 'block';
+        
+        // Auto-hide after 10 seconds
+        setTimeout(() => {
+            if (successModal.style.display === 'block') {
+                successModal.style.display = 'none';
+            }
+        }, 10000);
+    }
+}
+
+// Close success modal
+function closeSuccessModal() {
+    const successModal = document.getElementById('successModal');
+    if (successModal) {
+        successModal.style.display = 'none';
+    }
+}
+
+// Simulate sending confirmation email
+function simulateEmailConfirmation(data, ticketCode) {
+    const emailContent = {
+        to: data.ticketEmail,
+        subject: 'Ticket Confirmation - Static Drop Media Event',
+        body: `
+            Dear ${data.ticketName},
+            
+            Thank you for booking your tickets for our upcoming event!
+            
+            Booking Details:
+            - Event: ${data.ticketEvent}
+            - Ticket Type: ${data.ticketType}
+            - Quantity: ${data.ticketQuantity}
+            - Ticket Code: ${ticketCode}
+            
+            Your digital tickets will be available for download 24 hours before the event.
+            
+            If you have any questions, please contact us at info@staticdropmedia.com
+            
+            Best regards,
+            The Static Drop Media Team
+        `
+    };
+    
+    console.log('Email confirmation would be sent:', emailContent);
+    
+    // Show notification
+    if (window.StaticDropMedia && window.StaticDropMedia.showNotification) {
+        window.StaticDropMedia.showNotification('Confirmation email sent to ' + data.ticketEmail, 'success');
+    }
+}
+
+// Generate ticket code (fallback function)
+function generateTicketCode() {
+    const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+    let result = '';
+    for (let i = 0; i < 8; i++) {
+        result += chars.charAt(Math.floor(Math.random() * chars.length));
+    }
+    return result;
+}
+
+// Calculate ticket price based on type
+function getTicketPrice(ticketType) {
+    const prices = {
+        'general': 75,
+        'vip': 150,
+        'premium': 250
+    };
+    
+    return prices[ticketType] || 75;
+}
+
+// Format currency
+function formatCurrency(amount) {
+    return new Intl.NumberFormat('en-US', {
+        style: 'currency',
+        currency: 'USD'
+    }).format(amount);
+}
+
+// Export functions for use in other scripts
+window.TicketSystem = {
+    openTicketModal,
+    updateModalTotal,
+    handleTicketBooking,
+    validateTicketForm,
+    showSuccessModal,
+    closeSuccessModal,
+    getTicketPrice,
+    formatCurrency
+};
+
+// Vendors functionality for Static Drop Media Website
+
+document.addEventListener('DOMContentLoaded', function() {
+    // Initialize vendor form functionality
+    initializeVendorForm();
+    
+    // Initialize vendor package selection
+    initializeVendorPackages();
+    
+    // Initialize image upload preview
+    initializeImageUpload();
+});
+
+// Initialize vendor form functionality
+function initializeVendorForm() {
+    const vendorForm = document.getElementById('vendorForm');
+    if (!vendorForm) return;
+    
+    // Form validation on input
+    const inputs = vendorForm.querySelectorAll('input, select, textarea');
+    inputs.forEach(input => {
+        input.addEventListener('blur', function() {
+            validateVendorField(this);
+        });
+        
+        input.addEventListener('input', function() {
+            clearFieldError(this);
+        });
+    });
+    
+    // Form submission
+    vendorForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        handleVendorSubmission();
+    });
+}
+
+// Initialize vendor package selection
+function initializeVendorPackages() {
+    const vendorPackages = document.querySelectorAll('.vendor-package');
+    
+    vendorPackages.forEach(package => {
+        package.addEventListener('click', function() {
+            // Remove active class from all packages
+            vendorPackages.forEach(p => p.classList.remove('active'));
+            
+            // Add active class to clicked package
+            this.classList.add('active');
+            
+            // Update form with selected package
+            updateVendorFormWithPackage(this);
+        });
+    });
+}
+
+// Initialize image upload functionality
+function initializeImageUpload() {
+    const imageInput = document.getElementById('vendorImages');
+    if (!imageInput) return;
+    
+    imageInput.addEventListener('change', function(e) {
+        handleImageUpload(e.target.files);
+    });
+}
+
+// Handle vendor form submission
+function handleVendorSubmission() {
+    const formData = new FormData(document.getElementById('vendorForm'));
+    const data = Object.fromEntries(formData);
+    
+    // Validate form
+    if (!validateVendorForm(data)) {
+        return;
+    }
+    
+    // Show loading state
+    showVendorFormLoading(true);
+    
+    // Simulate form submission delay
+    setTimeout(() => {
+        // Process vendor application
+        processVendorApplication(data);
+        
+        // Hide loading state
+        showVendorFormLoading(false);
+        
+        // Show success message
+        showVendorSuccessMessage();
+        
+        // Reset form
+        document.getElementById('vendorForm').reset();
+        
+        // Clear image previews
+        clearImagePreviews();
+        
+        // Reset package selection
+        resetVendorPackageSelection();
+        
+    }, 2000);
+}
+
+// Validate vendor form
+function validateVendorForm(data) {
+    let isValid = true;
+    const requiredFields = ['vendorName', 'vendorEmail', 'vendorPhone', 'vendorCategory', 'vendorDescription'];
+    
+    // Check required fields
+    requiredFields.forEach(field => {
+        if (!data[field] || data[field].trim() === '') {
+            showFieldError(field, 'This field is required');
+            isValid = false;
+        }
+    });
+    
+    // Validate email format
+    if (data.vendorEmail && !isValidEmail(data.vendorEmail)) {
+        showFieldError('vendorEmail', 'Please enter a valid email address');
+        isValid = false;
+    }
+    
+    // Validate phone format
+    if (data.vendorPhone && !isValidPhone(data.vendorPhone)) {
+        showFieldError('vendorPhone', 'Please enter a valid phone number');
+        isValid = false;
+    }
+    
+    // Validate description length
+    if (data.vendorDescription && data.vendorDescription.length < 50) {
+        showFieldError('vendorDescription', 'Description must be at least 50 characters long');
+        isValid = false;
+    }
+    
+    return isValid;
+}
+
+// Validate email format
+function isValidEmail(email) {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+}
+
+// Validate phone format
+function isValidPhone(phone) {
+    const phoneRegex = /^[\+]?[1-9][\d]{0,15}$/;
+    return phoneRegex.test(phone.replace(/[\s\-\(\)]/g, ''));
+}
+
+// Show field error
+function showFieldError(fieldName, message) {
+    const field = document.getElementById(fieldName);
+    if (!field) return;
+    
+    // Remove existing error
+    clearFieldError(field);
+    
+    // Add error class
+    field.classList.add('error');
+    
+    // Create error message
+    const errorDiv = document.createElement('div');
+    errorDiv.className = 'field-error';
+    errorDiv.textContent = message;
+    errorDiv.style.cssText = `
+        color: #dc3545;
+        font-size: 0.875rem;
+        margin-top: 0.25rem;
+        font-weight: 500;
+    `;
+    
+    // Insert error message after field
+    field.parentNode.insertBefore(errorDiv, field.nextSibling);
+}
+
+// Clear field error
+function clearFieldError(field) {
+    field.classList.remove('error');
+    
+    // Remove error message
+    const errorMessage = field.parentNode.querySelector('.field-error');
+    if (errorMessage) {
+        errorMessage.remove();
+    }
+}
+
+// Validate individual vendor field
+function validateVendorField(field) {
+    const fieldName = field.name;
+    const value = field.value.trim();
+    
+    switch (fieldName) {
+        case 'vendorName':
+            if (value.length < 2) {
+                showFieldError(fieldName, 'Business name must be at least 2 characters long');
+            }
+            break;
+            
+        case 'vendorEmail':
+            if (value && !isValidEmail(value)) {
+                showFieldError(fieldName, 'Please enter a valid email address');
+            }
+            break;
+            
+        case 'vendorPhone':
+            if (value && !isValidPhone(value)) {
+                showFieldError(fieldName, 'Please enter a valid phone number');
+            }
+            break;
+            
+        case 'vendorDescription':
+            if (value && value.length < 50) {
+                showFieldError(fieldName, 'Description must be at least 50 characters long');
+            }
+            break;
+    }
+}
+
+// Update vendor form with selected package
+function updateVendorFormWithPackage(packageElement) {
+    const packageName = packageElement.querySelector('h4').textContent;
+    const packagePrice = packageElement.querySelector('.price').textContent;
+    
+    // You can add hidden fields or update form data here
+    console.log(`Selected package: ${packageName} - ${packagePrice}`);
+    
+    // Show notification
+    if (window.StaticDropMedia && window.StaticDropMedia.showNotification) {
+        window.StaticDropMedia.showNotification(`Selected: ${packageName}`, 'info');
+    }
+}
+
+// Handle image upload
+function handleImageUpload(files) {
+    if (!files || files.length === 0) return;
+    
+    // Clear existing previews
+    clearImagePreviews();
+    
+    // Create preview container if it doesn't exist
+    let previewContainer = document.querySelector('.image-preview-container');
+    if (!previewContainer) {
+        previewContainer = document.createElement('div');
+        previewContainer.className = 'image-preview-container';
+        previewContainer.style.cssText = `
+            margin-top: 1rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+            gap: 1rem;
+        `;
+        
+        const imageInput = document.getElementById('vendorImages');
+        imageInput.parentNode.appendChild(previewContainer);
+    }
+    
+    // Process each file
+    Array.from(files).forEach((file, index) => {
+        if (file.type.startsWith('image/')) {
+            const reader = new FileReader();
+            
+            reader.onload = function(e) {
+                const preview = document.createElement('div');
+                preview.className = 'image-preview';
+                preview.style.cssText = `
+                    position: relative;
+                    width: 100px;
+                    height: 100px;
+                    border-radius: 8px;
+                    overflow: hidden;
+                    border: 2px solid #e1e5e9;
+                `;
+                
+                const img = document.createElement('img');
+                img.src = e.target.result;
+                img.style.cssText = `
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                `;
+                
+                const removeBtn = document.createElement('button');
+                removeBtn.innerHTML = '×';
+                removeBtn.style.cssText = `
+                    position: absolute;
+                    top: 5px;
+                    right: 5px;
+                    background: #dc3545;
+                    color: white;
+                    border: none;
+                    border-radius: 50%;
+                    width: 20px;
+                    height: 20px;
+                    cursor: pointer;
+                    font-size: 14px;
+                    line-height: 1;
+                `;
+                
+                removeBtn.addEventListener('click', function() {
+                    preview.remove();
+                    updateImageInput();
+                });
+                
+                preview.appendChild(img);
+                preview.appendChild(removeBtn);
+                previewContainer.appendChild(preview);
+            };
+            
+            reader.readAsDataURL(file);
+        }
+    });
+}
+
+// Clear image previews
+function clearImagePreviews() {
+    const previewContainer = document.querySelector('.image-preview-container');
+    if (previewContainer) {
+        previewContainer.remove();
+    }
+}
+
+// Update image input after preview removal
+function updateImageInput() {
+    const previews = document.querySelectorAll('.image-preview');
+    const imageInput = document.getElementById('vendorImages');
+    
+    if (previews.length === 0) {
+        imageInput.value = '';
+    }
+}
+
+// Show vendor form loading state
+function showVendorFormLoading(show) {
+    const submitBtn = document.querySelector('#vendorForm button[type="submit"]');
+    if (!submitBtn) return;
+    
+    if (show) {
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Submitting...';
+    } else {
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = 'Submit Application';
+    }
+}
+
+// Show vendor success message
+function showVendorSuccessMessage() {
+    if (window.StaticDropMedia && window.StaticDropMedia.showNotification) {
+        window.StaticDropMedia.showNotification(
+            'Vendor application submitted successfully! We\'ll review your application and contact you within 3-5 business days.',
+            'success'
+        );
+    }
+}
+
+// Process vendor application
+function processVendorApplication(data) {
+    // Simulate processing
+    console.log('Processing vendor application:', data);
+    
+    // In a real application, this would:
+    // 1. Send data to backend server
+    // 2. Store in database
+    // 3. Send confirmation emails
+    // 4. Notify admin team
+    
+    // Simulate admin notification
+    const adminNotification = {
+        type: 'vendor_application',
+        business: data.vendorName,
+        category: data.vendorCategory,
+        email: data.vendorEmail,
+        timestamp: new Date().toISOString()
+    };
+    
+    console.log('Admin notification:', adminNotification);
+}
+
+// Reset vendor package selection
+function resetVendorPackageSelection() {
+    const vendorPackages = document.querySelectorAll('.vendor-package');
+    vendorPackages.forEach(package => {
+        package.classList.remove('active');
+    });
+}
+
+// Calculate vendor booth pricing
+function calculateVendorPricing(boothSize, duration) {
+    const basePrices = {
+        'standard': 500,
+        'premium': 800
+    };
+    
+    const durationMultiplier = {
+        'single': 1,
+        'weekend': 1.5,
+        'full': 2
+    };
+    
+    const basePrice = basePrices[boothSize] || 500;
+    const multiplier = durationMultiplier[duration] || 1;
+    
+    return basePrice * multiplier;
+}
+
+// Export functions for use in other scripts
+window.VendorSystem = {
+    handleVendorSubmission,
+    validateVendorForm,
+    handleImageUpload,
+    calculateVendorPricing,
+    showVendorSuccessMessage
+};
+    
+</script>
