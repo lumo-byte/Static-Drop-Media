@@ -206,7 +206,7 @@ p {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(128, 128, 128, 0.7)), url('../Stanced MK4.jpg');
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(128, 128, 128, 0.7)), url('Stanced MK4.jpg');
     background-size: cover;
     background-position: center top;
     background-repeat: no-repeat;
