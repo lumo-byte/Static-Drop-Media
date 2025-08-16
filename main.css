@@ -1,0 +1,1827 @@
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Ensure images are responsive */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Improve focus states for accessibility */
+*:focus {
+    outline: 2px solid #dc2626;
+    outline-offset: 2px;
+}
+
+/* Skip to content link for accessibility */
+.skip-link {
+    position: absolute;
+    top: -40px;
+    left: 6px;
+    background: #dc2626;
+    color: white;
+    padding: 8px;
+    text-decoration: none;
+    border-radius: 4px;
+    z-index: 10000;
+}
+
+.skip-link:focus {
+    top: 6px;
+}
+
+html, body {
+    overflow-x: hidden;
+    max-width: 100%;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    line-height: 1.6;
+    color: #1f1f1f;
+    background-color: #fff;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 600;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+}
+
+h1 {
+    font-size: 3.5rem;
+    font-weight: 700;
+}
+
+h2 {
+    font-size: 2.5rem;
+}
+
+h3 {
+    font-size: 1.8rem;
+}
+
+p {
+    margin-bottom: 1rem;
+    color: #666;
+}
+
+/* Buttons */
+.btn {
+    display: inline-block;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: center;
+    font-size: 1rem;
+}
+
+.btn-primary {
+    background: #dc2626;
+    color: white;
+    border: 2px solid #dc2626;
+}
+
+.btn-primary:hover {
+    background: white;
+    color: #dc2626;
+    border: 2px solid #dc2626;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(220, 38, 38, 0.3);
+}
+
+.btn-secondary {
+    background: #dc2626;
+    color: white;
+    border: 2px solid #dc2626;
+}
+
+.btn-secondary:hover {
+    background: white;
+    color: #dc2626;
+    border: 2px solid #dc2626;
+}
+
+.btn-outline {
+    background: #dc2626;
+    color: white;
+    border: 2px solid #dc2626;
+}
+
+.btn-outline:hover {
+    background: white;
+    color: #dc2626;
+    border: 2px solid #dc2626;
+}
+
+.btn-full {
+    width: 100%;
+}
+
+/* Navigation */
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+    padding: 1rem 0;
+    transition: all 0.3s ease;
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-logo {
+    display: flex;
+    align-items: center;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #dc2626;
+}
+
+.nav-logo i {
+    font-size: 2rem;
+    margin-right: 0.5rem;
+}
+
+.nav-menu {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+}
+
+.nav-menu a {
+    text-decoration: none;
+    color: #1f1f1f;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.nav-menu a:hover {
+    color: #dc2626;
+}
+
+.nav-toggle {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.nav-toggle span {
+    width: 25px;
+    height: 3px;
+    background: #333;
+    margin: 3px 0;
+    transition: 0.3s;
+}
+
+/* Hero Section */
+.hero {
+    min-height: 100vh;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(128, 128, 128, 0.7)), url('../Stanced MK4.jpg');
+    background-size: cover;
+    background-position: center top;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    color: white;
+    padding: 0 2rem;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Ensure background image scales properly on mobile */
+@media (max-width: 768px) {
+    .hero {
+        background-attachment: scroll;
+        background-position: center center;
+        height: 100vh;
+        min-height: 100vh;
+    }
+}
+
+.hero .container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 100%;
+}
+
+.hero-content {
+    max-width: 600px;
+    position: relative;
+    z-index: 2;
+    text-align: center;
+}
+
+.hero-content h1 {
+    margin-bottom: 1.5rem;
+    color: white;
+    font-size: 3.5rem;
+    line-height: 1.1;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    color: rgba(255, 255, 255, 0.95);
+    line-height: 1.6;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Removed hero-visual styling - no longer needed */
+
+/* Removed hero-image styling to allow full background image visibility */
+
+/* Section Headers */
+.section-header {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.section-header h2 {
+    color: #1f1f1f;
+    margin-bottom: 1rem;
+}
+
+.section-header p {
+    font-size: 1.1rem;
+    color: #666;
+}
+
+/* Dark section headers */
+.events .section-header h2,
+.vendors .section-header h2,
+.merchandise .section-header h2 {
+    color: white;
+}
+
+.events .section-header p,
+.vendors .section-header p,
+.merchandise .section-header p {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+/* Events Section - DARK BACKGROUND */
+.events {
+    padding: 5rem 0;
+    background: #1a1a1a;
+    color: white;
+}
+
+.events-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+    align-items: stretch;
+}
+
+.event-card {
+    background: white;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Dark section event cards */
+.events .event-card {
+    background: #2d2d2d;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.event-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
+}
+
+.event-image {
+    height: 200px;
+    background: linear-gradient(135deg, #dc2626 0%, #991b1b 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.event-image i {
+    font-size: 4rem;
+    color: white;
+}
+
+.event-content {
+    padding: 2rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Dark section event content text */
+.events .event-content h3 {
+    color: white;
+}
+
+.events .event-content .event-description {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.event-date, .event-location {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #666;
+    margin-bottom: 0.5rem;
+}
+
+/* Dark section event card text */
+.events .event-date,
+.events .event-location {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.event-actions {
+    display: flex;
+    gap: 1rem;
+    margin-top: auto;
+}
+
+/* Tickets Section */
+.tickets {
+    padding: 5rem 0;
+}
+
+.tickets-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    align-items: stretch;
+}
+
+.ticket-card {
+    background: white;
+    border-radius: 16px;
+    padding: 2rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    border: 2px solid transparent;
+    transition: all 0.3s ease;
+    position: relative;
+    min-height: 400px;
+    display: flex;
+    flex-direction: column;
+}
+
+.ticket-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
+}
+
+/* Removed featured ticket styling and badge - no longer needed */
+
+.ticket-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.ticket-price {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #dc2626;
+    margin-top: 1rem;
+}
+
+.ticket-price .currency {
+    font-size: 1.5rem;
+    vertical-align: top;
+}
+
+.ticket-price .period {
+    font-size: 1rem;
+    color: #666;
+    font-weight: 400;
+}
+
+.ticket-features {
+    list-style: none;
+    margin-bottom: 2rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.ticket-features li {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.75rem;
+    color: #666;
+    flex-shrink: 0;
+}
+
+.ticket-features i {
+    color: #28a745;
+}
+
+/* Ensure button is at the bottom of the ticket card */
+.ticket-card .btn {
+    margin-top: auto;
+    align-self: center;
+}
+
+
+
+/* Vendors Section - DARK BACKGROUND */
+.vendors {
+    padding: 5rem 0;
+    background: #1a1a1a;
+    color: white;
+}
+
+.vendor-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: start;
+}
+
+.vendor-benefits {
+    list-style: none;
+    margin-bottom: 2rem;
+}
+
+.vendor-benefits li {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.vendor-benefits i {
+    color: #dc2626;
+    font-size: 1.2rem;
+}
+
+.vendor-packages {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+.vendor-package {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Dark section vendor packages */
+.vendors .vendor-package {
+    background: #2d2d2d;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.vendor-package h4 {
+    color: #dc2626;
+    margin-bottom: 0.5rem;
+}
+
+.vendor-package .price {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 1rem;
+}
+
+.vendor-package ul {
+    list-style: none;
+}
+
+.vendor-package li {
+    margin-bottom: 0.5rem;
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.9rem;
+}
+
+/* Forms */
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    color: #1f1f1f;
+}
+
+/* Dark section form labels */
+.events .form-group label,
+.vendors .form-group label,
+.merchandise .form-group label {
+    color: white;
+}
+
+/* Dark section form inputs */
+.events .form-group input,
+.events .form-group select,
+.events .form-group textarea,
+.vendors .form-group input,
+.vendors .form-group select,
+.vendors .form-group textarea,
+.merchandise .form-group input,
+.merchandise .form-group select,
+.merchandise .form-group textarea {
+    background: #2d2d2d;
+    border-color: rgba(255, 255, 255, 0.2);
+    color: white;
+}
+
+.events .form-group input:focus,
+.events .form-group select:focus,
+.events .form-group textarea:focus,
+.vendors .form-group input:focus,
+.vendors .form-group select:focus,
+.vendors .form-group textarea:focus,
+.merchandise .form-group input:focus,
+.merchandise .form-group select:focus,
+.merchandise .form-group textarea:focus {
+    border-color: #dc2626;
+    background: #333;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #e1e5e9;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: #dc2626;
+}
+
+/* Sponsors Section */
+.sponsors {
+    padding: 5rem 0;
+}
+
+.sponsor-tiers {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    align-items: stretch;
+}
+
+.sponsor-tier {
+    background: white;
+    border-radius: 16px;
+    padding: 2rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    border: 2px solid transparent;
+    transition: all 0.3s ease;
+    position: relative;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.sponsor-tier:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
+}
+
+/* Removed featured sponsor styling - no longer needed */
+
+.sponsor-price {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #dc2626;
+    text-align: center;
+    margin: 1rem 0;
+}
+
+.sponsor-benefits {
+    list-style: none;
+    margin-bottom: 2rem;
+    flex: 1;
+}
+
+.sponsor-benefits li {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+    color: #666;
+}
+
+.sponsor-benefits i {
+    color: #28a745;
+}
+
+/* Merchandise Section - DARK BACKGROUND */
+.merchandise {
+    padding: 5rem 0;
+    background: #1a1a1a;
+    color: white;
+}
+
+.merch-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-bottom: 3rem;
+    align-items: stretch;
+}
+
+.merch-item {
+    background: white;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    min-height: 400px;
+}
+
+/* Dark section merchandise cards */
+.merchandise .merch-item {
+    background: #2d2d2d;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.merch-item:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
+}
+
+.merch-image {
+    height: 200px;
+    background: linear-gradient(135deg, #dc2626 0%, #991b1b 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.merch-image i {
+    font-size: 4rem;
+    color: white;
+}
+
+.merch-content {
+    padding: 1.5rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Dark section merchandise content text */
+.merchandise .merch-content h3 {
+    color: white;
+}
+
+.merchandise .merch-content .merch-description {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+/* Ensure buttons in dark sections are visible */
+.events .btn,
+.vendors .btn,
+.merchandise .btn {
+    color: white;
+    background: #dc2626;
+    border-color: #dc2626;
+}
+
+.events .btn:hover,
+.vendors .btn:hover,
+.merchandise .btn:hover {
+    background: white;
+    color: #dc2626;
+    border-color: #dc2626;
+}
+
+.merch-price {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #dc2626;
+    margin-bottom: 0.5rem;
+}
+
+/* Ensure merchandise price is visible in dark sections */
+.merchandise .merch-price {
+    color: #dc2626;
+}
+
+/* Remove duplicate rule - already handled above */
+
+.merch-options {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    margin-top: auto;
+    flex-wrap: wrap;
+}
+
+.merch-size {
+    flex: 1;
+    padding: 8px;
+    border: 2px solid #e1e5e9;
+    border-radius: 6px;
+}
+
+/* Dark section merchandise size selector */
+.merchandise .merch-size {
+    background: #2d2d2d;
+    border-color: rgba(255, 255, 255, 0.2);
+    color: white;
+}
+
+.merchandise .merch-size:focus {
+    border-color: #dc2626;
+    background: #333;
+}
+
+.cart-summary {
+    background: #2d2d2d;
+    padding: 2rem;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    color: white;
+}
+
+.cart-total {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+/* Ensure cart total text is visible in dark merchandise section */
+.merchandise .cart-total {
+    color: white;
+}
+
+/* Contact Section */
+.contact {
+    padding: 5rem 0;
+}
+
+.contact-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+}
+
+.contact-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.contact-item i {
+    color: #dc2626;
+    font-size: 1.5rem;
+    margin-top: 0.2rem;
+}
+
+.contact-item h4 {
+    color: #1f1f1f;
+    margin-bottom: 0.5rem;
+}
+
+.contact-item p {
+    color: #666;
+    margin-bottom: 0;
+}
+
+/* Footer */
+.footer {
+    background: #1a1a1a;
+    color: white;
+    padding: 3rem 0 1rem;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-bottom: 2rem;
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+.footer-logo {
+    display: flex;
+    align-items: center;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #dc2626;
+    margin-bottom: 1rem;
+}
+
+.footer-logo i {
+    font-size: 2rem;
+    margin-right: 0.5rem;
+}
+
+.footer-section h4 {
+    color: white;
+    margin-bottom: 1rem;
+}
+
+.footer-section p {
+    color: white;
+    margin-bottom: 1rem;
+}
+
+.footer-section ul {
+    list-style: none;
+}
+
+.footer-section ul li {
+    margin-bottom: 0.5rem;
+}
+
+.footer-section ul li a {
+    color: #ccc;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-section ul li a:hover {
+    color: #dc2626;
+}
+
+.social-links {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.social-links a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background: #333;
+    color: white;
+    border-radius: 50%;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.social-links a:hover {
+    background: #dc2626;
+    transform: translateY(-2px);
+}
+
+.newsletter-form {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 1rem;
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+.newsletter-form input {
+    flex: 1;
+    min-width: 0;
+    max-width: calc(100% - 130px);
+    padding: 10px;
+    border: none;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    box-sizing: border-box;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.newsletter-form .btn {
+    flex-shrink: 0;
+    white-space: nowrap;
+    box-sizing: border-box;
+    max-width: 120px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 2rem;
+    border-top: 1px solid #333;
+    color: #ccc;
+}
+
+/* Modals */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 2000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(5px);
+}
+
+.modal-content {
+    background-color: white;
+    margin: 5% auto;
+    padding: 2rem;
+    border-radius: 16px;
+    width: 90%;
+    max-width: 500px;
+    max-height: 80vh;
+    overflow-y: auto;
+    position: relative;
+    animation: modalSlideIn 0.3s ease;
+    box-sizing: border-box;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+    border: 1px solid rgba(220, 38, 38, 0.1);
+    transition: all 0.3s ease;
+}
+
+.modal-content:hover {
+    box-shadow: 0 25px 80px rgba(0, 0, 0, 0.2);
+    border-color: rgba(220, 38, 38, 0.2);
+}
+
+@keyframes modalSlideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-30px) scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.close {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    font-size: 2rem;
+    cursor: pointer;
+    color: #999;
+    transition: color 0.3s ease;
+}
+
+.close:hover {
+    color: #333;
+}
+
+.modal-content.success {
+    text-align: center;
+}
+
+.modal-content.success i {
+    font-size: 4rem;
+    color: #28a745;
+    margin-bottom: 1rem;
+}
+
+/* Custom scrollbar for modal content - seamlessly integrated */
+.modal-content::-webkit-scrollbar {
+    width: 4px;
+}
+
+.modal-content::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.05);
+    border-radius: 2px;
+    margin: 4px 0;
+}
+
+.modal-content::-webkit-scrollbar-thumb {
+    background: rgba(220, 38, 38, 0.4);
+    border-radius: 2px;
+    border: none;
+    transition: all 0.2s ease;
+}
+
+.modal-content::-webkit-scrollbar-thumb:hover {
+    background: rgba(220, 38, 38, 0.7);
+    transform: scaleX(1.2);
+}
+
+.modal-content::-webkit-scrollbar-corner {
+    background: transparent;
+}
+
+/* Ensure scrollbar is contained within modal boundaries */
+.modal-content {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(220, 38, 38, 0.4) rgba(0, 0, 0, 0.05);
+}
+
+
+
+.ticket-code {
+    background: #f8f9fa;
+    padding: 1rem;
+    border-radius: 8px;
+    margin: 1rem 0;
+    font-family: monospace;
+    font-size: 1.1rem;
+}
+
+.ticket-total {
+    background: #f8f9fa;
+    padding: 1rem;
+    border-radius: 8px;
+    margin: 1rem 0;
+    text-align: center;
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+/* Mobile Navigation */
+.nav-toggle {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    z-index: 1001;
+    padding: 5px;
+}
+
+.nav-toggle span {
+    width: 25px;
+    height: 3px;
+    background: #333;
+    margin: 3px 0;
+    transition: 0.3s ease;
+    border-radius: 2px;
+}
+
+.nav-toggle.active span:nth-child(1) {
+    transform: rotate(-45deg) translate(-5px, 6px);
+}
+
+.nav-toggle.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.nav-toggle.active span:nth-child(3) {
+    transform: rotate(45deg) translate(-5px, -6px);
+}
+
+/* Prevent body scroll when mobile menu is open */
+body.nav-open {
+    overflow: hidden;
+}
+
+/* Mobile menu overlay */
+.nav-menu {
+    transition: left 0.3s ease, opacity 0.3s ease;
+}
+
+.nav-menu.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .container {
+        padding: 0 15px;
+    }
+    
+    .hero-content h1 {
+        font-size: 3rem;
+    }
+    
+    .events-grid,
+    .tickets-grid,
+    .sponsor-tiers,
+    .merch-grid {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 1.5rem;
+    }
+    
+    .vendor-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .contact-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .nav-menu {
+        position: fixed;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100vh;
+        background: rgba(255, 255, 255, 0.98);
+        backdrop-filter: blur(10px);
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 2rem;
+        transition: left 0.3s ease;
+        z-index: 1000;
+    }
+    
+    .nav-menu.active {
+        left: 0;
+    }
+    
+    .nav-menu li {
+        margin: 0;
+    }
+    
+    .nav-menu a {
+        font-size: 1.2rem;
+        padding: 1rem 2rem;
+        border-radius: 8px;
+        transition: all 0.3s ease;
+    }
+    
+    .nav-menu a:hover {
+        background: #dc2626;
+        color: white;
+    }
+    
+    .nav-toggle {
+        display: flex;
+    }
+    
+    .hero {
+        flex-direction: column;
+        text-align: center;
+        padding: 100px 1rem 2rem 1rem;
+        min-height: 80vh;
+    }
+    
+    .hero-content {
+        margin-bottom: 2rem;
+        margin-right: 0;
+        max-width: 100%;
+    }
+    
+    .hero-content h1 {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+    }
+    
+    .hero-content p {
+        font-size: 1rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    .hero-buttons {
+        justify-content: center;
+        flex-direction: row;
+        gap: 1rem;
+        flex-wrap: wrap;
+    }
+    
+    .hero-buttons .btn {
+        width: auto;
+        min-width: 140px;
+        max-width: none;
+    }
+    
+    .section-header {
+        margin-bottom: 3rem;
+    }
+    
+    .section-header h2 {
+        font-size: 2rem;
+    }
+    
+    .section-header p {
+        font-size: 1rem;
+    }
+    
+    .events,
+    .tickets,
+    .vendors,
+    .sponsors,
+    .merchandise,
+    .contact {
+        padding: 3rem 0;
+    }
+    
+    .events-grid,
+    .tickets-grid,
+    .sponsor-tiers,
+    .merch-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .event-card,
+    .ticket-card,
+    .sponsor-tier,
+    .merch-item {
+        margin: 0 auto;
+        max-width: 400px;
+    }
+    
+    .ticket-card {
+        min-height: 350px;
+        padding: 1.5rem;
+    }
+    
+    .ticket-features {
+        margin-bottom: 1.5rem;
+    }
+    
+    .ticket-features li {
+        margin-bottom: 0.75rem;
+        font-size: 0.95rem;
+    }
+    
+    .event-actions {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    
+    .event-actions .btn {
+        width: 100%;
+    }
+    
+    .merch-options {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    
+    .merch-options .btn {
+        width: 100%;
+    }
+    
+    .merch-size {
+        width: 100%;
+    }
+    
+    .vendor-packages {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    .cart-total {
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
+    }
+    
+    .cart-total .btn {
+        width: 100%;
+    }
+    
+    .newsletter-form {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    
+    .newsletter-form .btn {
+        width: 100%;
+    }
+    
+    .modal-content {
+        width: 95%;
+        margin: 10% auto;
+        padding: 1.5rem;
+        max-height: 85vh;
+        overflow-y: auto;
+    }
+    
+    .footer-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+    
+    .social-links {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 0 10px;
+    }
+    
+    .hero-content h1 {
+        font-size: 2rem;
+    }
+    
+    .hero-content p {
+        font-size: 0.9rem;
+    }
+    
+    .section-header h2 {
+        font-size: 1.8rem;
+    }
+    
+    .section-header p {
+        font-size: 0.9rem;
+    }
+    
+    .event-card,
+    .ticket-card,
+    .sponsor-tier,
+    .merch-item {
+        margin: 0;
+        max-width: none;
+    }
+    
+    .event-content,
+    .ticket-card,
+    .sponsor-tier,
+    .merch-content {
+        padding: 1.5rem;
+    }
+    
+    .ticket-card {
+        min-height: 320px;
+        padding: 1.5rem;
+    }
+    
+    .ticket-features {
+        margin-bottom: 1.5rem;
+    }
+    
+    .ticket-features li {
+        margin-bottom: 0.75rem;
+        font-size: 0.9rem;
+    }
+    
+    .hero-buttons {
+        flex-direction: row;
+        gap: 0.75rem;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .hero-buttons .btn {
+        min-width: 120px;
+        max-width: none;
+        font-size: 0.9rem;
+        padding: 12px 20px;
+    }
+    
+    .modal-content {
+        width: 98%;
+        margin: 5% auto;
+        padding: 1rem;
+        max-height: 90vh;
+        overflow-y: auto;
+    }
+    
+    .ticket-price {
+        font-size: 2rem;
+    }
+    
+    .sponsor-price {
+        font-size: 1.5rem;
+    }
+    
+    .merch-price {
+        font-size: 1.2rem;
+    }
+}
+
+@media (max-width: 360px) {
+    .hero-content h1 {
+        font-size: 1.8rem;
+    }
+    
+    .section-header h2 {
+        font-size: 1.6rem;
+    }
+    
+    .event-content,
+    .ticket-card,
+    .sponsor-tier,
+    .merch-content {
+        padding: 1rem;
+    }
+    
+    .ticket-card {
+        min-height: 300px;
+        padding: 1.5rem;
+    }
+    
+    .ticket-features {
+        margin-bottom: 1.5rem;
+    }
+    
+    .ticket-features li {
+        margin-bottom: 0.75rem;
+        font-size: 0.85rem;
+    }
+    
+    .hero-buttons {
+        gap: 0.5rem;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .hero-buttons .btn {
+        min-width: 100px;
+        padding: 10px 16px;
+        font-size: 0.85rem;
+    }
+    
+    .btn {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+    }
+}
+
+/* Landscape orientation adjustments */
+@media (max-height: 500px) and (orientation: landscape) {
+    .hero {
+        min-height: 100vh;
+        height: 100vh;
+        padding: 0 1rem;
+    }
+    
+    .hero-content h1 {
+        font-size: 2rem;
+        margin-bottom: 0.5rem;
+    }
+    
+    .hero-content p {
+        font-size: 0.9rem;
+        margin-bottom: 1rem;
+    }
+    
+    .nav-menu {
+        padding: 1rem 0;
+    }
+    
+    .nav-menu li {
+        margin: 0 1rem;
+    }
+}
+
+/* High DPI displays */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    .hero {
+        background-attachment: scroll;
+    }
+}
+
+/* Touch device optimizations */
+@media (hover: none) and (pointer: coarse) {
+    .btn:hover {
+        transform: none;
+    }
+    
+    .event-card:hover,
+    .ticket-card:hover,
+    .sponsor-tier:hover,
+    .merch-item:hover {
+        transform: none;
+    }
+    
+    .nav-menu a:hover {
+        background: transparent;
+        color: #dc2626;
+    }
+}
+
+/* Notification Styles */
+.notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: white;
+    color: #333;
+    padding: 1rem 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    z-index: 3000;
+    transform: translateX(400px);
+    transition: transform 0.3s ease;
+    max-width: 400px;
+}
+
+.notification.show {
+    transform: translateX(0);
+}
+
+.notification-success {
+    background: #d4edda;
+    color: #155724;
+    border-left: 4px solid #28a745;
+}
+
+.notification-error {
+    background: #f8d7da;
+    color: #721c24;
+    border-left: 4px solid #dc3545;
+}
+
+.notification-info {
+    background: #d1ecf1;
+    color: #0c5460;
+    border-left: 4px solid #17a2b8;
+}
+
+.notification-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.notification-message {
+    flex: 1;
+    margin-right: 1rem;
+}
+
+.notification-close {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: inherit;
+    opacity: 0.7;
+    transition: opacity 0.2s ease;
+}
+
+.notification-close:hover {
+    opacity: 1;
+}
+
+/* Additional mobile optimizations */
+@media (max-width: 768px) {
+    /* Improve touch targets */
+    .btn {
+        min-height: 44px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    /* Better spacing for mobile */
+    .section-header {
+        padding: 0 1rem;
+    }
+    
+    /* Ensure forms are mobile-friendly */
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+        font-size: 16px; /* Prevents zoom on iOS */
+        min-height: 44px;
+    }
+    
+    /* Better modal positioning on mobile */
+    .modal-content {
+        margin: 10% auto;
+        max-height: 90vh;
+        overflow-y: auto;
+    }
+    
+    /* Improve card readability on small screens */
+    .event-card,
+    .ticket-card,
+    .sponsor-tier,
+    .merch-item {
+        margin-bottom: 1rem;
+    }
+    
+    /* Better button spacing in mobile */
+    .event-actions,
+    .merch-options {
+        gap: 0.75rem;
+    }
+    
+    /* Ensure proper spacing on very small screens */
+    .container {
+        padding: 0 15px;
+    }
+    
+    /* Better text sizing for mobile */
+    .hero-content h1 {
+        font-size: clamp(1.8rem, 8vw, 2.5rem);
+    }
+    
+    .hero-content p {
+        font-size: clamp(0.9rem, 4vw, 1rem);
+    }
+    
+    /* Improve mobile navigation */
+    .nav-menu {
+        padding: 2rem 0;
+    }
+    
+    .nav-menu a {
+        font-size: clamp(1.1rem, 5vw, 1.2rem);
+        padding: 1.5rem 2rem;
+    }
+}
+
+/* Tablet-specific optimizations */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .container {
+        padding: 0 30px;
+    }
+    
+    .events-grid,
+    .tickets-grid,
+    .sponsor-tiers,
+    .merch-grid {
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        gap: 2rem;
+    }
+    
+    .hero-content h1 {
+        font-size: 3.2rem;
+    }
+}
+
+/* Large screen optimizations */
+@media (min-width: 1200px) {
+    .container {
+        max-width: 1400px;
+    }
+    
+    .hero-content h1 {
+        font-size: 4rem;
+    }
+    
+    .events-grid,
+    .tickets-grid,
+    .sponsor-tiers,
+    .merch-grid {
+        grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+    }
+}
+
+/* Print styles */
+@media print {
+    .navbar,
+    .nav-toggle,
+    .btn,
+    .modal,
+    .footer {
+        display: none !important;
+    }
+    
+    .hero {
+        background: none !important;
+        color: black !important;
+        min-height: auto;
+        padding: 2rem;
+    }
+    
+    .section {
+        page-break-inside: avoid;
+    }
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --bg-color: #1a1a1a;
+        --text-color: #ffffff;
+        --card-bg: #2d2d2d;
+    }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+    
+    .hero {
+        background-attachment: scroll;
+    }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+    .btn {
+        border-width: 3px;
+    }
+    
+    .event-card,
+    .ticket-card,
+    .sponsor-tier,
+    .merch-item {
+        border: 2px solid #000;
+    }
+}
+
+/* Landscape phone optimizations */
+@media (max-width: 768px) and (orientation: landscape) {
+    .hero {
+        min-height: 70vh;
+        padding: 80px 2rem 1rem 2rem;
+    }
+    
+    .hero-content h1 {
+        font-size: 2rem;
+        margin-bottom: 0.5rem;
+    }
+    
+    .hero-content p {
+        font-size: 0.9rem;
+        margin-bottom: 1rem;
+    }
+    
+    .nav-menu {
+        padding: 1rem 0;
+    }
+    
+    .nav-menu li {
+        margin: 0 0.5rem;
+    }
+}
+
+/* Very small screen optimizations */
+@media (max-width: 320px) {
+    .container {
+        padding: 0 10px;
+    }
+    
+    .hero-content h1 {
+        font-size: 1.6rem;
+    }
+    
+    .section-header h2 {
+        font-size: 1.4rem;
+    }
+    
+    .btn {
+        padding: 8px 16px;
+        font-size: 0.8rem;
+    }
+    
+    .event-content,
+    .ticket-card,
+    .sponsor-tier,
+    .merch-content {
+        padding: 1rem;
+    }
+}
